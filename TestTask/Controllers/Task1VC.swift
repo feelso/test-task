@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Task1VC: UIViewController {
     let width: CGFloat = 160
     let height: CGFloat = 160.0
     var path = UIBezierPath()
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITextFieldDelegate {
+extension Task1VC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
