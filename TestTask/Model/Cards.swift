@@ -29,7 +29,6 @@ class Card3: UIView {
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = UIColor.white.cgColor
         
-        //   square.transform = CGAffineTransform(rotationAngle: 180)
         square.rotate(angle: 45)
         self.addSubview(oval)
         self.addSubview(one)
@@ -48,6 +47,7 @@ class Card1: UIView {
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 110, height: 150), cornerRadius: 15).cgPath
         layer.strokeColor = UIColor.white.cgColor
+        layer.strokeStart = 0
         layer.fillColor = .none
         layer.lineWidth = 4
         layer.lineDashPattern = [5,5]
