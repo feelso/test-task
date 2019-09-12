@@ -12,6 +12,8 @@
 		B8C38549232800C200433D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C38547232800C200433D63 /* Main.storyboard */; };
 		B8C3854B232800C300433D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C3854A232800C300433D63 /* Assets.xcassets */; };
 		B8C3854E232800C300433D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C3854C232800C300433D63 /* LaunchScreen.storyboard */; };
+		B8C38578232A704500433D63 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C38577232A704500433D63 /* Validation.swift */; };
+		B8C3857A232A706900433D63 /* ValidationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C38579232A706900433D63 /* ValidationEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B8C3854A232800C300433D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8C3854D232800C300433D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8C3854F232800C300433D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8C38577232A704500433D63 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		B8C38579232A706900433D63 /* ValidationEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				B8C38543232800C200433D63 /* AppDelegate.swift */,
 				B8C38545232800C200433D63 /* ViewController.swift */,
+				B8C38577232A704500433D63 /* Validation.swift */,
+				B8C38579232A706900433D63 /* ValidationEnums.swift */,
 				B8C38547232800C200433D63 /* Main.storyboard */,
 				B8C3854A232800C300433D63 /* Assets.xcassets */,
 				B8C3854C232800C300433D63 /* LaunchScreen.storyboard */,
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8C38546232800C200433D63 /* ViewController.swift in Sources */,
+				B8C38578232A704500433D63 /* Validation.swift in Sources */,
 				B8C38544232800C200433D63 /* AppDelegate.swift in Sources */,
+				B8C3857A232A706900433D63 /* ValidationEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
