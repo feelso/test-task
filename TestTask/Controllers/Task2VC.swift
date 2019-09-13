@@ -9,46 +9,66 @@
 import UIKit
 
 class Task2VC: UIViewController {
-
+    
+    var isFlipped = true
+    
+    let myView = UIView()
+    
+    let card1 = Card1(frame: CGRect(x: 80, y: 130, width: 100, height: 100))
+    let card2 = Card2(frame: CGRect(x: 130, y: 320, width: 100, height: 100))
+    let card3 = Card3(frame: CGRect(x: 210, y: 130, width: 100, height: 100))
+    let flipCard = Card3(frame: CGRect(x: 130, y: 320, width: 100, height: 100))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        let card1 = Card1(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        let card3 = Card3(frame: CGRect(x: 100, y: 260, width: 100, height: 100))
+            setupViews()
         
-        view.addSubview(card3)
+    }
+    
+    
+    @objc func flip() {
+        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight]
+        
+        if isFlipped {
+            UIView.transition(from: card2,
+                              to: flipCard,
+                              duration: 0.4,
+                              options: transitionOptions) { (Bool) in
+                                self.isFlipped = !self.isFlipped
+            }
+        } else {
+            UIView.transition(from: flipCard,
+                              to: card2,
+                              duration: 0.4,
+                              options: transitionOptions) { (Bool) in
+                                self.isFlipped = !self.isFlipped
+            }
+        }
+    }
+
+    func setupViews() {
+        
+        let button: UIButton = {
+            let btn = UIButton()
+            btn.frame = CGRect(x: view.frame.width / 2 - 30, y: 520, width: 60, height: 40)
+            let color: UIColor = #colorLiteral(red: 0.2207842469, green: 0.6311809421, blue: 0.9513030648, alpha: 1)
+            btn.backgroundColor = color
+            btn.layer.cornerRadius = 10
+            btn.setTitle("Flip", for: .normal)
+            return btn
+        }()
+        button.addTarget(self, action: #selector(flip), for: .touchUpInside)
+        
+        myView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+
+        view.addSubview(myView)
         view.addSubview(card1)
+        view.addSubview(card3)
+        myView.addSubview(flipCard)
+        myView.addSubview(card2)
+        view.addSubview(button)
         
     }
-    
-
-    func secondCard() {
-        
-        let layer = CAShapeLayer()
-        
-        layer.strokeColor = UIColor.white.cgColor
-        layer.fillColor = .none
-        layer.frame = CGRect(x: 150, y: 250, width: 110, height: 150)
-        layer.borderWidth = 7
-        layer.cornerRadius = 15
-        layer.borderColor = UIColor.white.cgColor
-       
-        view.layer.addSublayer(layer)
-        
-    }
-    
-    
-    func firstCard() {
-        let layer = CAShapeLayer()
-        layer.path = UIBezierPath(roundedRect: CGRect(x: 15, y: 50, width: 110, height: 150), cornerRadius: 15).cgPath
-        layer.strokeColor = UIColor.white.cgColor
-        layer.fillColor = .none
-        layer.lineWidth = 4
-        layer.lineDashPattern = [5,5]
-        view.layer.addSublayer(layer)
-    }
-
 }
 
 

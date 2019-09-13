@@ -107,6 +107,8 @@ extension Task1VC: UITextFieldDelegate {
             switch response {
             case .success:
                 textField.textColor = .black
+                textLabel.text = textField.text
+
             case .failure(_):
                 textField.textColor = .red
                 textField.text = ""
