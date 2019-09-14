@@ -21,6 +21,8 @@ class Task1VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
         textField.addTarget(self, action: #selector(textFieldChanged), for: .allEditingEvents)
 
         setupViews()
@@ -34,14 +36,15 @@ class Task1VC: UIViewController {
             let image = UIImage(data: imgData)
             
             viewImage.image = image
-            viewImage.frame = CGRect(x: view.frame.width / 2 - width / 2 , y: 150, width: 160, height: 160)
+            viewImage.frame = CGRect(x: 0 , y: 0, width: 160, height: 160)
+            viewImage.center = CGPoint(x: view.center.x, y: view.center.y - 100)
             halfCircleMaskFor(imageView: viewImage)
             addMaskPathFor(image: viewImage)
         }
         textLabel.text = "5"
         textLabel.font = UIFont.systemFont(ofSize: 30)
-        textLabel.frame = CGRect(x: view.center.x + width / 4 + 5, y: 205, width: 25, height: 50)
-        
+        textLabel.frame = CGRect(x: 0, y: 0, width: 25, height: 50)
+        textLabel.center = CGPoint(x: view.center.x + width / 3 , y: view.center.y - 100)
         
         textField.frame = CGRect(x: view.center.x - 50, y: view.center.y, width: 100, height: 30)
         textField.borderStyle = .roundedRect
@@ -49,25 +52,11 @@ class Task1VC: UIViewController {
         textField.textAlignment = .center
         textField.keyboardType = .numberPad
         
-        buttonAction.frame = CGRect(x: view.center.x - 50, y: view.center.y + 50, width: 100, height: 30)
-        buttonAction.setTitle("Change", for: .normal)
-        buttonAction.backgroundColor = .gray
-        buttonAction.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        
         self.view.addSubview(textField)
         self.view.addSubview(buttonAction)
         self.view.addSubview(viewImage)
         self.view.addSubview(textLabel)
     }
-    
-  @objc func buttonTapped(sender: UIButton!) {
-    guard !textField.text!.isEmpty else { return }
-    guard let text = textField.text else { return }
-        textLabel.text = text
-        textField.resignFirstResponder()
-    }
-    
     func addMaskPathFor(image: UIImageView)  {
         let layer = CAShapeLayer()
         layer.path  = path.cgPath
@@ -111,7 +100,6 @@ extension Task1VC: UITextFieldDelegate {
 
             case .failure(_):
                 textField.textColor = .red
-                textField.text = ""
             }
         }
     }
@@ -123,5 +111,18 @@ extension Task1VC: UITextFieldDelegate {
 extension CGFloat {
     func toRadians() -> CGFloat {
         return self * CGFloat(Double.pi / 180.0)
+    }
+}
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
