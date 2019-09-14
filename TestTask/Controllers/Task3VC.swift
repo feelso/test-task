@@ -64,6 +64,7 @@ class Task3VC: UIViewController {
         
     }
     
+    
     private func createBlueCircleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: false)
@@ -86,7 +87,6 @@ class Task3VC: UIViewController {
         layer.position = view.center
         return layer
     }
-    
     
     private func setupCircleLayers() {
         
@@ -122,12 +122,10 @@ class Task3VC: UIViewController {
     
     fileprivate func animateGrayCircleTo(value: CGFloat) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        
         basicAnimation.duration = 0.05
-        
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
+        
         if value == 0 {
             trackLayer.strokeStart = 0
             trackLayer.strokeEnd = 1 - value

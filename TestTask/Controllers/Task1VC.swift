@@ -57,6 +57,7 @@ class Task1VC: UIViewController {
         self.view.addSubview(viewImage)
         self.view.addSubview(textLabel)
     }
+ 
     func addMaskPathFor(image: UIImageView)  {
         let layer = CAShapeLayer()
         layer.path  = path.cgPath
@@ -104,25 +105,4 @@ extension Task1VC: UITextFieldDelegate {
         }
     }
     
-}
-
-
-
-extension CGFloat {
-    func toRadians() -> CGFloat {
-        return self * CGFloat(Double.pi / 180.0)
-    }
-}
-
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }

@@ -64,92 +64,40 @@ class GridView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.drawGridd()
+        self.drawGrid()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    fileprivate func drawGridd() {
-        
+    fileprivate func drawGrid() {
+        let width: CGFloat = 115
+        let inset: CGFloat = 5
         path = UIBezierPath()
         path.lineWidth = 0.5
         
-        var counter: CGFloat = 15
+        var counter: CGFloat = 20
         
-        for _ in 1...5 {
+        for _ in 1...16 {
             
-            let start = CGPoint(x: self.bounds.minX, y: counter)
-            let end = CGPoint(x: counter, y: self.bounds.minY)
+            let start = CGPoint(x: 0, y: counter)
+            let end = CGPoint(x: counter, y: inset)
             path.move(to: start)
             path.addLine(to: end)
-            counter += 20
+            counter += 15
         }
-        var counter2: CGFloat = bounds.minY + 8
-        path.move(to: CGPoint(x: counter - 8, y: counter2))
-        path.addLine(to: CGPoint(x: bounds.minX, y: counter))
+        var secondCounter:CGFloat = 20
         
-        counter2 += 20
-        counter += 20
-        
-        for _ in 1...2 {
-            let start = CGPoint(x: self.bounds.maxX + 8, y: counter2)
-            let end = CGPoint(x: bounds.minX + 7, y: counter - 7)
+        for _ in 1...16 {
+            let start = CGPoint(x: width - secondCounter , y: inset)
+            let end = CGPoint(x: width - inset , y: secondCounter)
             path.move(to: start)
             path.addLine(to: end)
-            counter += 20
-            counter2 += 20
-        }
-        counter2 += 10
-        var counter3: CGFloat = 27
-        
-        for _ in 1...4 {
-            let start = CGPoint(x: counter3, y: bounds.maxY)
-            let end = CGPoint(x: bounds.maxX + 7, y: counter2 - 7)
-            path.move(to: end)
-            path.addLine(to: start)
-            counter2 += 20
-            counter3 += 20
-        }
-        
-        var reverseCounter: CGFloat = 15
-        for _ in 1...5 {
-            let start = CGPoint(x: self.bounds.width - reverseCounter , y: self.bounds.minY + 4)
-            let end = CGPoint(x: self.bounds.width + 5 , y: self.bounds.minY + reverseCounter + 5)
-            path.move(to: start)
-            path.addLine(to: end)
-            reverseCounter += 20
-        }
-        var revCounter2: CGFloat = 20
-        path.move(to: CGPoint(x: bounds.minX, y: revCounter2))
-        path.addLine(to: CGPoint(x: self.bounds.width + 5, y: reverseCounter + 5))
-        
-        revCounter2 += 20
-        reverseCounter += 20
-        
-        let start = CGPoint(x: bounds.minX , y: revCounter2 + 2)
-        let end = CGPoint(x: self.bounds.width + 5 , y: reverseCounter + 5)
-        path.move(to: start)
-        path.addLine(to: end)
-        reverseCounter += 20
-        revCounter2 += 20
-        
-        var revCounter3: CGFloat = 10
-        for _ in 1...4 {
-            
-            let start = CGPoint(x: bounds.minX , y: revCounter2 + 2)
-            let end = CGPoint(x: self.bounds.width - revCounter3 , y: bounds.height)
-            path.move(to: start)
-            path.addLine(to: end)
-            revCounter3 += 20
-            revCounter2 += 20
-            
+            secondCounter += 15
         }
         
         path.close()
-        
     }
     
     override func draw(_ rect: CGRect) {
@@ -161,6 +109,7 @@ class GridView: UIView {
         shapeLayer.backgroundColor = UIColor.lightGray.cgColor
         shapeLayer.cornerRadius = 15
         shapeLayer.strokeColor = UIColor.white.cgColor
+        self.clipsToBounds = true
         self.layer.addSublayer(shapeLayer)
     }
 }

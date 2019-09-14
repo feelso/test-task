@@ -21,7 +21,7 @@ class Task2VC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            setupViews()
+        setupViews()
         
     }
     
