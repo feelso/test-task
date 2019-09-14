@@ -17,7 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.80250471830368042" green="0.93552500009536743" blue="0.99050682783126831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Tmi-C5-lBh">
@@ -42,11 +42,44 @@
                         <color key="backgroundColor" red="0.80333364009857178" green="0.93907016515731812" blue="0.99069243669509888" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="gv2-oH-dQH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9aY-Se-yNu"/>
+                    <navigationItem key="navigationItem" id="9aY-Se-yNu">
+                        <barButtonItem key="rightBarButtonItem" title="Task 3" id="iDF-JL-kEh">
+                            <connections>
+                                <segue destination="c8A-M3-Vb4" kind="show" identifier="task3" id="jg6-VG-X0h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qT-Du-Mkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1807" y="21"/>
+        </scene>
+        <!--Task3VC-->
+        <scene sceneID="f1Z-zL-qyL">
+            <objects>
+                <viewController id="c8A-M3-Vb4" customClass="Task3VC" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W1z-ha-Ibl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OuL-ft-AFP">
+                                <rect key="frame" x="148" y="656" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="c8A-M3-Vb4" eventType="valueChanged" id="xLD-3O-vQH"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZgT-wX-SBX"/>
+                    </view>
+                    <connections>
+                        <outlet property="sliderView" destination="OuL-ft-AFP" id="IhT-sS-u4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRF-Xr-lTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krW-3D-ofO">

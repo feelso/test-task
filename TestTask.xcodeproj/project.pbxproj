@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B868C3AD232D0D9700A8B19C /* Task3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B868C3AC232D0D9700A8B19C /* Task3VC.swift */; };
 		B8C38544232800C200433D63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C38543232800C200433D63 /* AppDelegate.swift */; };
 		B8C38546232800C200433D63 /* Task1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C38545232800C200433D63 /* Task1VC.swift */; };
 		B8C38549232800C200433D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8C38547232800C200433D63 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B868C3AC232D0D9700A8B19C /* Task3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task3VC.swift; sourceTree = "<group>"; };
 		B8C38540232800C200433D63 /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C38543232800C200433D63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8C38545232800C200433D63 /* Task1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1VC.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				B8C38545232800C200433D63 /* Task1VC.swift */,
 				B8C3857B232A759700433D63 /* Task2VC.swift */,
+				B868C3AC232D0D9700A8B19C /* Task3VC.swift */,
 				B8C38543232800C200433D63 /* AppDelegate.swift */,
 			);
 			path = Controllers;
@@ -173,6 +176,7 @@
 				B8C385A0232AD01E00433D63 /* Figures.swift in Sources */,
 				B8C3857C232A759700433D63 /* Task2VC.swift in Sources */,
 				B8C3857A232A706900433D63 /* ValidationEnums.swift in Sources */,
+				B868C3AD232D0D9700A8B19C /* Task3VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

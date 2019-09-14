@@ -27,20 +27,19 @@ class Task2VC: UIViewController {
     
     
     @objc func flip() {
-        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight]
         
         if isFlipped {
             UIView.transition(from: card2,
                               to: flipCard,
                               duration: 0.4,
-                              options: transitionOptions) { (Bool) in
+                              options: [.transitionFlipFromRight, .showHideTransitionViews]) { (Bool) in
                                 self.isFlipped = !self.isFlipped
             }
         } else {
             UIView.transition(from: flipCard,
                               to: card2,
                               duration: 0.4,
-                              options: transitionOptions) { (Bool) in
+                              options: [.transitionFlipFromLeft, .showHideTransitionViews]) { (Bool) in
                                 self.isFlipped = !self.isFlipped
             }
         }
